@@ -1,1 +1,38 @@
-[]
+{
+  "AppCommands": [
+    {
+      "Name": "Install",
+      "Executable": "./install.sh",
+      "WorkingDirectory": "./pocketrelay/serverfiles",
+      "ConsoleOutput": true,
+      "Timeout": 300
+    },
+    {
+      "Name": "Update",
+      "Executable": "git pull && cargo build --release",
+      "WorkingDirectory": "./pocketrelay/serverfiles",
+      "ConsoleOutput": true,
+      "Timeout": 300
+    },
+    {
+      "Name": "Start",
+      "Executable": "./pocket-relay-x86_64-linux-musl",
+      "WorkingDirectory": "./pocketrelay/serverfiles",
+      "ConsoleOutput": true,
+      "Timeout": 30
+    },
+    {
+      "Name": "Stop",
+      "Executable": "pkill -f pocket-relay-x86_64-linux-musl",
+      "WorkingDirectory": "./pocketrelay/serverfiles",
+      "ConsoleOutput": false,
+      "Timeout": 30
+    }
+  ],
+  "CompatibleOS": ["Linux"],
+  "Executable": "./pocket-relay-x86_64-linux-musl",
+  "WorkingDirectory": "./pocketrelay/serverfiles",
+  "LogFile": "pocketrelay/serverfiles/logs/server.log",
+  "User": "amp",
+  "Group": "amp"
+}
